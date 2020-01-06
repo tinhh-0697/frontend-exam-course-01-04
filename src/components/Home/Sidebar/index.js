@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import LogoImg from './img/logo.png';
+import Notification from '../../Modules/Notification';
 
 import {
   Logo,
@@ -28,7 +29,7 @@ const Sidebars = props => {
       <Sidebar toggle={toggle}>
         <Logo>
           <div>
-            <img src={LogoImg}></img>
+            <img src={LogoImg} alt=""></img>
           </div>
           <p>ORBITA</p>
           <i onClick={() => closeSidebar()} class="fa fa-times-circle-o"></i>
@@ -38,38 +39,56 @@ const Sidebars = props => {
           <ListMenu>
             <li>
               <ListItem to="/chart">
-                <i className="fa fa-tachometer"></i>
-                <span>Dashboard</span>
+                <div>
+                  <i className="fa fa-tachometer"></i>
+                  <span>Dashboard</span>
+                </div>
+                <Notification Number="2"></Notification>
               </ListItem>
             </li>
             <li>
               <ListItem to="/table">
-                <i className="fa fa-home"></i>
-                <span>Home</span>
-              </ListItem>
-            </li>
-            <li>
-              <ListItem to="/table" activeClassName="active">
-                <i className="fa fa-puzzle-piece"></i>
-                <span>Widgets</span>
-              </ListItem>
-            </li>
-            <li>
-              <ListItem to="/table" activeClassName="active">
-                <i className="fa fa-th"></i>
-                <span>Elements</span>
-              </ListItem>
-            </li>
-            <li>
-              <ListItem to="/table" activeClassName="active">
-                <i className="fa fa-file-text"></i>
-                <span>Forms</span>
+                <div>
+                  <i className="fa fa-home"></i>
+                  <span>Home</span>
+                </div>
+                <Notification Number="0"></Notification>
               </ListItem>
             </li>
             <li>
               <ListItem to="/chart" activeClassName="active">
-                <i className="fa fa-pie-chart"></i>
-                <span>Charts</span>
+                <div>
+                  <i className="fa fa-puzzle-piece"></i>
+                  <span>Widgets</span>
+                </div>
+                <Notification Number="0"></Notification>
+              </ListItem>
+            </li>
+            <li>
+              <ListItem to="/table" activeClassName="active">
+                <div>
+                  <i className="fa fa-th"></i>
+                  <span>Elements</span>
+                </div>
+                <Notification Number="0"></Notification>
+              </ListItem>
+            </li>
+            <li>
+              <ListItem to="/table" activeClassName="active">
+                <div>
+                  <i className="fa fa-file-text"></i>
+                  <span>Forms</span>
+                </div>
+                <Notification Number="0"></Notification>
+              </ListItem>
+            </li>
+            <li>
+              <ListItem to="/chart" activeClassName="active">
+                <div>
+                  <i className="fa fa-pie-chart"></i>
+                  <span>Charts</span>
+                </div>
+                <Notification Number="0"></Notification>
               </ListItem>
             </li>
           </ListMenu>
@@ -79,38 +98,56 @@ const Sidebars = props => {
           <ListMenu>
             <li>
               <ListItem to="/table">
-                <i className="fa fa-tachometer"></i>
-                <span>Dashboard</span>
+                <div>
+                  <i className="fa fa-tachometer"></i>
+                  <span>Dashboard</span>
+                </div>
+                <Notification Number="0"></Notification>
               </ListItem>
             </li>
             <li>
               <ListItem to="/table">
-                <i className="fa fa-home"></i>
-                <span>Home</span>
+                <div>
+                  <i className="fa fa-home"></i>
+                  <span>Home</span>
+                </div>
+                <Notification Number="0"></Notification>
               </ListItem>
             </li>
             <li>
-              <ListItem to="/table">
-                <i className="fa fa-puzzle-piece"></i>
-                <span>Widgets</span>
+              <ListItem to="/chart" activeClassName="active">
+                <div>
+                  <i className="fa fa-puzzle-piece"></i>
+                  <span>Widgets</span>
+                </div>
+                <Notification Number="0"></Notification>
               </ListItem>
             </li>
             <li>
-              <ListItem to="/table">
-                <i className="fa fa-th"></i>
-                <span>Elements</span>
+              <ListItem to="/table" activeClassName="active">
+                <div>
+                  <i className="fa fa-th"></i>
+                  <span>Elements</span>
+                </div>
+                <Notification Number="0"></Notification>
               </ListItem>
             </li>
             <li>
-              <ListItem to="/table">
-                <i className="fa fa-file-text"></i>
-                <span>Forms</span>
+              <ListItem to="/table" activeClassName="active">
+                <div>
+                  <i className="fa fa-file-text"></i>
+                  <span>Forms</span>
+                </div>
+                <Notification Number="0"></Notification>
               </ListItem>
             </li>
             <li>
-              <ListItem to="/table">
-                <i className="fa fa-pie-chart"></i>
-                <span>Charts</span>
+              <ListItem to="/chart" activeClassName="active">
+                <div>
+                  <i className="fa fa-pie-chart"></i>
+                  <span>Charts</span>
+                </div>
+                <Notification Number="0"></Notification>
               </ListItem>
             </li>
           </ListMenu>

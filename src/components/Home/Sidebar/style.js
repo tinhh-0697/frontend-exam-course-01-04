@@ -67,21 +67,11 @@ export const Category = styled.div`
 `;
 
 export const ListItem = styled(NavLink)`
-  display: block;
+  display: flex;
+  justify-content: space-between;
   position: relative;
   padding: 21px 34px;
   color: #757d89;
-
-  /* ::before {
-    content: '';
-    position: absolute;
-    top: 13px;
-    left: 0;
-    bottom: 5px;
-    height: 44px;
-    width: 5px;
-    background: #38c6da;
-  } */
 
   :hover {
     text-decoration: none;

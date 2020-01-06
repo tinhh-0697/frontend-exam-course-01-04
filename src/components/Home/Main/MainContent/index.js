@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ContentTable } from './style';
+import PopupAdd from '../../Popup/Add';
+
 import {
   Articles,
   TableArticles,
@@ -9,14 +11,17 @@ import {
   ButtonDelete
 } from './style';
 
-const index = () => {
+const MainContent = () => {
+  const [modal, setModal] = useState(false);
+  const toggle = () => setModal(!modal);
   return (
     <>
       <ContentTable>
         <Articles>
           <ArticlesTop>
             <p>Articles</p>
-            <ButtonAdd> Add new +</ButtonAdd>
+            <ButtonAdd onClick={toggle}> Add new +</ButtonAdd>
+            <PopupAdd modal={modal} onClickPopupAdd={toggle}></PopupAdd>
           </ArticlesTop>
           <TableArticles responsive>
             <thead>
@@ -154,4 +159,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default MainContent;

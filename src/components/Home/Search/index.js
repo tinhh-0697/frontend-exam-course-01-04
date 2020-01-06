@@ -9,7 +9,7 @@ const index = () => {
     <TopMain>
       <FormTop action="/">
         <button type="summit">
-          <img src={IconSearch} />
+          <img src={IconSearch} alt="img" />
         </button>
         <input type="text" placeholder="Search now..." />
       </FormTop>
