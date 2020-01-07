@@ -9,6 +9,9 @@ export const ArticlesTop = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 28px 20px 15px 21px;
+  border-radius: 10px;
+  color: ${props => props.theme.color_title_articles};
+  background: ${props => props.theme.background_table};
 `;
 
 export const ButtonAdd = styled(Button)`
@@ -37,7 +40,7 @@ export const ButtonDelete = styled(Button)`
 `;
 
 export const Articles = styled.div`
-  background: #fafbfc;
+  background: ${props => props.theme.background_table_1};
   border-radius: 10px;
   padding-bottom: 30px;
 
@@ -49,13 +52,12 @@ export const Articles = styled.div`
 `;
 
 export const TableArticles = styled(Table)`
-  background: #fafbfc;
+  background: ${props => props.theme.background_table_1};
 
   thead th {
     padding-top: 15px;
-    border-bottom: 1px solid #dee2e6;
-
-    color: #606060;
+    border-bottom: 1px solid ${props => props.theme.border_table};
+    color: ${props => props.theme.text_color_1};
   }
 
   tr {
@@ -71,11 +73,11 @@ export const TableArticles = styled(Table)`
   }
 
   tbody tr:nth-of-type(odd) {
-    background-color: #fafbfc;
+    background: ${props => props.theme.background_table_1};
   }
 
   tbody tr:nth-of-type(even) {
-    background-color: rgba(0, 0, 0, 0.05);
+    background: ${props => props.theme.background_table_2};
   }
 
   .name-td {
@@ -90,10 +92,12 @@ export const TableArticles = styled(Table)`
 
   .check-status {
     width: calc(100% * 0.3);
+    color: ${props => props.theme.text_color_2};
   }
 
   .view-td {
     width: calc(100% * 0.2);
+    color: ${props => props.theme.text_color_2};
   }
 
   .btn-td {

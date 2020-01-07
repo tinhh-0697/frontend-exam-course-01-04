@@ -24,7 +24,7 @@ const Sidebars = props => {
   return (
     <>
       <ButtonToggle onClick={() => toggleSidebar()}>
-        <i class="fa fa-bars" aria-hidden="true"></i>
+        <i className="fa fa-bars" aria-hidden="true"></i>
       </ButtonToggle>
       <Sidebar toggle={toggle}>
         <Logo>
@@ -32,13 +32,16 @@ const Sidebars = props => {
             <img src={LogoImg} alt=""></img>
           </div>
           <p>ORBITA</p>
-          <i onClick={() => closeSidebar()} class="fa fa-times-circle-o"></i>
+          <i
+            onClick={() => closeSidebar()}
+            className="fa fa-times-circle-o"
+          ></i>
         </Logo>
         <Category>
           <p>CATEGORY 1</p>
           <ListMenu>
             <li>
-              <ListItem to="/chart">
+              <ListItem to="/table">
                 <div>
                   <i className="fa fa-tachometer"></i>
                   <span>Dashboard</span>

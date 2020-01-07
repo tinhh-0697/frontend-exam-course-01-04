@@ -47,4 +47,15 @@ export const LoginWrap = styled.div`
     font-weight: bold;
     font-style: italic;
   }
+
+  .form-group input {
+    margin-bottom: 0px;
+  }
+`;
+
+export const ErrorValidate = styled.div`
+  padding: 6px 12px;
+  font-size: 15px;
+  font-style: italic;
+  color: red;
 `;

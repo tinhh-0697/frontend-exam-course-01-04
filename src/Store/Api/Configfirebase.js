@@ -1,19 +1,19 @@
 import * as firebase from 'firebase';
 // Your web app's Firebase configuration
 var firebaseConfig = {
-  apiKey: 'AIzaSyBtiSbsTKhzOfAPexM8BOqilj5yxEaIDm0',
-  authDomain: 'machinecompany-8426a.firebaseapp.com',
-  databaseURL: 'https://machinecompany-8426a.firebaseio.com',
-  projectId: 'machinecompany-8426a',
-  storageBucket: 'machinecompany-8426a.appspot.com',
-  messagingSenderId: '1037066428515',
-  appId: '1:1037066428515:web:58eabf4b2d7ec5ae729856',
-  measurementId: 'G-S1TE8TRBX4'
+  apiKey: 'AIzaSyDmJmHS-PvjbVmZWQPXnSBQ-t1rRZCH9Qo',
+  authDomain: 'projectendcourse.firebaseapp.com',
+  databaseURL: 'https://projectendcourse.firebaseio.com',
+  projectId: 'projectendcourse',
+  storageBucket: 'projectendcourse.appspot.com',
+  messagingSenderId: '546331046390',
+  appId: '1:546331046390:web:56fa9434d5559cb39217d7',
+  measurementId: 'G-79YCLQJBK7'
 };
-// Initialize Firebase
+
+// firebase.initializeApp(firebaseConfig);
 // firebase.analytics();
 
 var firebaseApp = firebase.initializeApp(firebaseConfig);
 
 export default firebaseApp;
-export var firestore = firebase.firestore(firebaseApp);

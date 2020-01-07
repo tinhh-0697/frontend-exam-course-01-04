@@ -1,4 +1,5 @@
 import React from 'react';
+import firebaseApp from '../../../../Store/Api/Configfirebase';
 import {
   Button,
   InputGroup,
@@ -11,10 +12,18 @@ import {
   Input,
   InputGroupAddon
 } from 'reactstrap';
+import * as firebase from 'firebase';
 import { PopupAdd, IconText } from './style';
 
 const Add = props => {
-  // const { buttonLabel, className } = props;
+  const writeUserData = () => {
+    firebase
+      .database()
+      .ref('Articles')
+      .set({
+        Email: 'name'
+      });
+  };
 
   return (
     <PopupAdd
@@ -66,7 +75,7 @@ const Add = props => {
         </form>
       </ModalBody>
       <ModalFooter>
-        <Button color="success" onClick={props.onClickPopupAdd}>
+        <Button color="success" onClick={writeUserData}>
           Add
         </Button>{' '}
         <Button color="danger" onClick={props.onClickPopupAdd}>

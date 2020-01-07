@@ -23,12 +23,9 @@ export const TopMain = styled.div`
   display: flex;
   justify-content: space-between;
   height: 82px;
-  background: #fafbfc;
-  box-shadow: 0 0 54px rgba(0,0,0,0.09);
-/* 
-  ${TopControl} {
-    color: red;
-  } */
+  background: ${props => props.theme.background_search};
+  /* background: #fafbfc; */
+  box-shadow: 0 0 54px rgba(0, 0, 0, 0.09);
 `;
 export const FormTop = styled.form`
   padding: 17px 20px 16px 27px;
@@ -42,7 +39,8 @@ export const FormTop = styled.form`
 
   input {
     padding-top: 11px;
-    background: #fafbfc;
+    background: ${props => props.theme.background_search};
+    /* background: #fafbfc; */
     font-size: 18px;
     border: none;
     color: #b2b2b2;

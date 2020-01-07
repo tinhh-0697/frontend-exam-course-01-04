@@ -4,6 +4,7 @@ import { Button } from 'reactstrap';
 
 export const Sidebar = styled.div`
   width: calc((100% * 9) / 50);
+  background: ${props => props.theme.background_search};
 
   @media only screen and (max-width: 1099px) {
     display: ${props => (props.toggle ? 'none' : 'block')};
@@ -34,7 +35,7 @@ export const Logo = styled.div`
   p {
     text-align: center;
     margin-bottom: 0px;
-    padding: 12px 16px;
+    padding: 16px 16px;
     font-size: 18px;
     font-weight: bold;
     color: white;
@@ -50,19 +51,21 @@ export const Logo = styled.div`
       display: block;
     }
   }
+  img {
+    padding: 3px 0px 5px 0px;
+  }
 `;
 
 export const Category = styled.div`
   padding-top: 30px;
-  background: white;
+  background: ${props => props.theme.background_search};
 
   p {
-    background: white;
     font-size: 16px;
     color: #bcbfc4;
     padding: 12px 12px 12px 34px;
     margin-bottom: 0px;
-    border-bottom: 1px solid #eaeced;
+    border-bottom: 1px solid ${props => props.theme.border_table};
   }
 `;
 

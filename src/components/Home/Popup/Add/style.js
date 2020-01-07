@@ -15,6 +15,12 @@ export const PopupAdd = styled(Modal)`
   .modal-footer {
     border-top: transparent;
   }
+
+  button {
+    :focus {
+      outline: none;
+    }
+  }
 `;
 
 export const IconText = styled(InputGroupText)`

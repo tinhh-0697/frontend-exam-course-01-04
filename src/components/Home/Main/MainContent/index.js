@@ -39,7 +39,7 @@ const MainContent = () => {
                 <td className="name-td">Creating Remarkable Poster...</td>
                 <td className="view-td">2,567</td>
                 <td className="check-status">
-                  <i class="fa fa-check" aria-hidden="true"></i>
+                  <i className="fa fa-check" aria-hidden="true"></i>
                 </td>
                 <td className="btn-td">
                   <ButtonEdit>Edit</ButtonEdit>
@@ -51,7 +51,7 @@ const MainContent = () => {
                 <td className="name-td">Creating Remarkable Poster...</td>
                 <td className="view-td">2,567</td>
                 <td className="check-status">
-                  <i class="fa fa-check" aria-hidden="true"></i>
+                  <i className="fa fa-check" aria-hidden="true"></i>
                 </td>
                 <td className="btn-td">
                   <ButtonEdit>Edit</ButtonEdit>
@@ -63,7 +63,7 @@ const MainContent = () => {
                 <td className="name-td">Creating Remarkable Poster...</td>
                 <td className="view-td">2,567</td>
                 <td className="check-status">
-                  <i class="fa fa-check" aria-hidden="true"></i>
+                  <i className="fa fa-check" aria-hidden="true"></i>
                 </td>
                 <td className="btn-td">
                   <ButtonEdit>Edit</ButtonEdit>
@@ -75,7 +75,7 @@ const MainContent = () => {
                 <td className="name-td">Creating Remarkable Poster...</td>
                 <td className="view-td">2,567</td>
                 <td className="check-status">
-                  <i class="fa fa-check" aria-hidden="true"></i>
+                  <i className="fa fa-check" aria-hidden="true"></i>
                 </td>
                 <td className="btn-td">
                   <ButtonEdit>Edit</ButtonEdit>
@@ -108,7 +108,7 @@ const MainContent = () => {
                 <td className="name-td">Creating Remarkable Poster...</td>
                 <td className="view-td">2,567</td>
                 <td className="check-status">
-                  <i class="fa fa-check" aria-hidden="true"></i>
+                  <i className="fa fa-check" aria-hidden="true"></i>
                 </td>
                 <td className="btn-td">
                   <ButtonEdit>Edit</ButtonEdit>
@@ -120,7 +120,7 @@ const MainContent = () => {
                 <td className="name-td">Creating Remarkable Poster...</td>
                 <td className="view-td">2,567</td>
                 <td className="check-status">
-                  <i class="fa fa-check" aria-hidden="true"></i>
+                  <i className="fa fa-check" aria-hidden="true"></i>
                 </td>
                 <td className="btn-td">
                   <ButtonEdit>Edit</ButtonEdit>
@@ -132,7 +132,7 @@ const MainContent = () => {
                 <td className="name-td">Creating Remarkable Poster...</td>
                 <td className="view-td">2,567</td>
                 <td className="check-status">
-                  <i class="fa fa-check" aria-hidden="true"></i>
+                  <i className="fa fa-check" aria-hidden="true"></i>
                 </td>
                 <td className="btn-td">
                   <ButtonEdit>Edit</ButtonEdit>
@@ -144,7 +144,7 @@ const MainContent = () => {
                 <td className="name-td">Creating Remarkable Poster...</td>
                 <td className="view-td">2,567</td>
                 <td className="check-status">
-                  <i class="fa fa-check" aria-hidden="true"></i>
+                  <i className="fa fa-check" aria-hidden="true"></i>
                 </td>
                 <td className="btn-td">
                   <ButtonEdit>Edit</ButtonEdit>
