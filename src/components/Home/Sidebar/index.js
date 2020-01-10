@@ -50,7 +50,7 @@ const Sidebars = props => {
               </ListItem>
             </li>
             <li>
-              <ListItem to="/table">
+              <ListItem to="/table2">
                 <div>
                   <i className="fa fa-home"></i>
                   <span>Home</span>
@@ -59,7 +59,7 @@ const Sidebars = props => {
               </ListItem>
             </li>
             <li>
-              <ListItem to="/chart" activeClassName="active">
+              <ListItem to="/chart1" activeClassName="active">
                 <div>
                   <i className="fa fa-puzzle-piece"></i>
                   <span>Widgets</span>
@@ -68,7 +68,7 @@ const Sidebars = props => {
               </ListItem>
             </li>
             <li>
-              <ListItem to="/table" activeClassName="active">
+              <ListItem to="/table3" activeClassName="active">
                 <div>
                   <i className="fa fa-th"></i>
                   <span>Elements</span>
@@ -77,7 +77,7 @@ const Sidebars = props => {
               </ListItem>
             </li>
             <li>
-              <ListItem to="/table" activeClassName="active">
+              <ListItem to="/table4" activeClassName="active">
                 <div>
                   <i className="fa fa-file-text"></i>
                   <span>Forms</span>
@@ -86,7 +86,7 @@ const Sidebars = props => {
               </ListItem>
             </li>
             <li>
-              <ListItem to="/chart" activeClassName="active">
+              <ListItem to="/chart5" activeClassName="active">
                 <div>
                   <i className="fa fa-pie-chart"></i>
                   <span>Charts</span>
@@ -100,7 +100,7 @@ const Sidebars = props => {
           <p>CATEGORY 2</p>
           <ListMenu>
             <li>
-              <ListItem to="/table">
+              <ListItem to="/table21">
                 <div>
                   <i className="fa fa-tachometer"></i>
                   <span>Dashboard</span>
@@ -109,7 +109,7 @@ const Sidebars = props => {
               </ListItem>
             </li>
             <li>
-              <ListItem to="/table">
+              <ListItem to="/table44">
                 <div>
                   <i className="fa fa-home"></i>
                   <span>Home</span>
@@ -118,7 +118,7 @@ const Sidebars = props => {
               </ListItem>
             </li>
             <li>
-              <ListItem to="/chart" activeClassName="active">
+              <ListItem to="/chart51" activeClassName="active">
                 <div>
                   <i className="fa fa-puzzle-piece"></i>
                   <span>Widgets</span>
@@ -127,7 +127,7 @@ const Sidebars = props => {
               </ListItem>
             </li>
             <li>
-              <ListItem to="/table" activeClassName="active">
+              <ListItem to="/table412" activeClassName="active">
                 <div>
                   <i className="fa fa-th"></i>
                   <span>Elements</span>
@@ -136,7 +136,7 @@ const Sidebars = props => {
               </ListItem>
             </li>
             <li>
-              <ListItem to="/table" activeClassName="active">
+              <ListItem to="/table7" activeClassName="active">
                 <div>
                   <i className="fa fa-file-text"></i>
                   <span>Forms</span>
@@ -145,7 +145,7 @@ const Sidebars = props => {
               </ListItem>
             </li>
             <li>
-              <ListItem to="/chart" activeClassName="active">
+              <ListItem to="/chart2" activeClassName="active">
                 <div>
                   <i className="fa fa-pie-chart"></i>
                   <span>Charts</span>

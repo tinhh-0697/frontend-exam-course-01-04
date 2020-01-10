@@ -1,8 +1,8 @@
 import React from 'react';
-import { LoginPage, LoginWrap, SummitLogin, ErrorValidate } from './style';
+import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { connect } from 'react-redux';
-import * as Yup from 'yup';
+import { LoginPage, LoginWrap, SummitLogin, ErrorValidate } from './style';
 import { LoginFirebase, checkStatusLogin } from '../../Store/Login/action';
 
 const Login = props => {

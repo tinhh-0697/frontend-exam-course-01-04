@@ -5,13 +5,24 @@ import { Button } from 'reactstrap';
 export const Sidebar = styled.div`
   width: calc((100% * 9) / 50);
   background: ${props => props.theme.background_search};
+  transition: all 0.4s;
 
-  @media only screen and (max-width: 1099px) {
+  @media only screen and (max-width: 1380px) {
+    width: 25%;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    width: 30%;
+  }
+
+  @media only screen and (max-width: 850px) {
     display: ${props => (props.toggle ? 'none' : 'block')};
     position: absolute;
+    z-index: 5;
     top: 0px;
     bottom: 0px;
     width: 343px;
+    box-shadow: 0 0 5px #383232;
   }
 `;
 
@@ -21,7 +32,7 @@ export const ButtonToggle = styled(Button)`
   top: 82px;
   width: 50px;
   height: 50px;
-  @media only screen and (max-width: 1099px) {
+  @media only screen and (max-width: 850px) {
     display: block;
   }
 `;
@@ -47,7 +58,7 @@ export const Logo = styled.div`
     font-size: 25px;
     color: #ffffff;
 
-    @media only screen and (max-width: 1099px) {
+    @media only screen and (max-width: 850px) {
       display: block;
     }
   }
@@ -75,10 +86,27 @@ export const ListItem = styled(NavLink)`
   position: relative;
   padding: 21px 34px;
   color: #757d89;
+  transition: all 0.6;
 
   :hover {
     text-decoration: none;
     color: #38c6da;
+    ::before {
+      content: '';
+      position: absolute;
+      top: 13px;
+      left: 0;
+      bottom: 5px;
+      height: 44px;
+      width: 5px;
+      background: #38c6da;
+    }
+  }
+
+  &.active {
+    text-decoration: none;
+    color: #38c6da;
+
     ::before {
       content: '';
       position: absolute;

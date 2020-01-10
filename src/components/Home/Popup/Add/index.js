@@ -1,5 +1,10 @@
 import React from 'react';
-import firebaseApp from '../../../../Store/Api/Configfirebase';
+import { withFormik } from 'formik';
+import * as firebase from 'firebase';
+import { connect } from 'react-redux';
+import { PopupAdd, IconText } from './style';
+import { ErrorValidate } from '../../../Login/style';
+import { loadDataAPI } from '../../../../Store/Articles/action';
 import {
   Button,
   InputGroup,
@@ -12,78 +17,161 @@ import {
   Input,
   InputGroupAddon
 } from 'reactstrap';
-import * as firebase from 'firebase';
-import { PopupAdd, IconText } from './style';
 
 const Add = props => {
-  const writeUserData = () => {
-    firebase
-      .database()
-      .ref('Articles')
-      .set({
-        Email: 'name'
-      });
-  };
+  const {
+    modal,
+    values,
+    touched,
+    errors,
+    handleChange,
+    handleBlur,
+    onClickPopupAdd,
+    handleSubmit
+  } = props;
 
   return (
-    <PopupAdd
-      isOpen={props.modal}
-      toggle={props.onClickPopupAdd}
-      className="modal-lg"
-    >
-      <ModalHeader toggle={props.onClickPopupAdd}>Add articles</ModalHeader>
-      <ModalBody>
-        <form>
+    <PopupAdd isOpen={modal} toggle={onClickPopupAdd} className="modal-lg">
+      <form onSubmit={handleSubmit}>
+        <ModalHeader toggle={onClickPopupAdd}>Add articles</ModalHeader>
+        <ModalBody>
           <FormGroup row>
             <Label for="name" sm={2}>
               Name articles
             </Label>
             <Col sm={10}>
               <InputGroup>
-                <Input placeholder="Text" name="name" id="name" />
+                <Input
+                  placeholder="Text"
+                  name="name"
+                  id="name"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.name}
+                />
                 <InputGroupAddon addonType="prepend">
                   <IconText>&#xf040;</IconText>
                 </InputGroupAddon>
               </InputGroup>
+              {touched.name && errors.name ? (
+                <ErrorValidate>{errors.name}</ErrorValidate>
+              ) : null}
             </Col>
           </FormGroup>
           <FormGroup row>
-            <Label for="name" sm={2}>
+            <Label for="views" sm={2}>
               Views number
             </Label>
             <Col sm={10}>
               <InputGroup>
-                <Input placeholder="Number" />
+                <Input
+                  placeholder="Number"
+                  name="views"
+                  id="views"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.views}
+                />
                 <InputGroupAddon addonType="prepend">
                   <IconText>&#xf06e;</IconText>
                 </InputGroupAddon>
               </InputGroup>
+              {touched.views && errors.views ? (
+                <ErrorValidate>{errors.views}</ErrorValidate>
+              ) : null}
             </Col>
           </FormGroup>
           <FormGroup row>
-            <Label for="checkbox2" sm={2}>
+            <Label for="status" sm={2}>
               Status
             </Label>
             <Col sm={10} style={{ paddingTop: '10px' }}>
               <FormGroup check>
                 <Label check>
-                  <Input type="checkbox" id="checkbox2" /> Status of articles
+                  <Input
+                    type="checkbox"
+                    name="status"
+                    id="status"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.status}
+                  />{' '}
+                  Status of articles
                 </Label>
               </FormGroup>
             </Col>
           </FormGroup>
-        </form>
-      </ModalBody>
-      <ModalFooter>
-        <Button color="success" onClick={writeUserData}>
-          Add
-        </Button>{' '}
-        <Button color="danger" onClick={props.onClickPopupAdd}>
-          Cancel
-        </Button>
-      </ModalFooter>
+        </ModalBody>
+        <ModalFooter>
+          <Button type="submit" color="success">
+            Add
+          </Button>{' '}
+          <Button color="danger" onClick={props.onClickPopupAdd}>
+            Cancel
+          </Button>
+        </ModalFooter>
+      </form>
     </PopupAdd>
   );
 };
 
-export default Add;
+const PopupAddArticles = withFormik({
+  mapPropsToValues: () => ({ name: '', views: '', status: false }),
+
+  validate: values => {
+    const errors = {};
+
+    if (!values.name) {
+      errors.name = 'Required';
+    }
+    if (!values.views) {
+      errors.views = 'Required';
+    }
+
+    if (isNaN(values.views)) {
+      errors.views = 'This is number';
+    }
+
+    if (parseInt(values.views) < 0) {
+      errors.views = 'Number more than 0';
+    }
+    return errors;
+  },
+
+  handleSubmit: (values, { props, resetForm }) => {
+    var newPostKey = firebase
+      .database()
+      .ref()
+      .child('Articles')
+      .push().key;
+
+    const article = {
+      id: newPostKey,
+      name: values.name,
+      views: values.views,
+      status: values.status
+    };
+
+    var updates = {};
+    updates['/Articles/' + newPostKey] = article;
+    resetForm();
+    firebase
+      .database()
+      .ref()
+      .update(updates);
+    props.onClickPopupAdd();
+    props.loadData();
+  }
+})(Add);
+
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = dispatch => {
+  return {
+    loadData: () => {
+      dispatch(loadDataAPI());
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PopupAddArticles);

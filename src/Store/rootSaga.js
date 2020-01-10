@@ -1,4 +1,6 @@
-// import { fork } from 'redux-saga/effects';
-// import { Login } from '../Store/Login/saga';
+import { fork } from 'redux-saga/effects';
+import { Articles } from '../Store/Articles/saga';
 
-export function* rootSaga() {}
+export function* rootSaga() {
+  yield fork(Articles);
+}

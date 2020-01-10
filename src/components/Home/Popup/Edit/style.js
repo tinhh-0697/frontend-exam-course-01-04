@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Modal, InputGroupText } from 'reactstrap';
 
-export const PopupAdd = styled(Modal)`
+export const PopupEdit = styled(Modal)`
   .modal-content {
     -webkit-border-radius: 20px !important;
     -moz-border-radius: 20px !important;

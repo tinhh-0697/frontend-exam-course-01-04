@@ -14,6 +14,11 @@ export const ArticlesTop = styled.div`
   background: ${props => props.theme.background_table};
 `;
 
+export const GroupButton = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const ButtonAdd = styled(Button)`
   margin-bottom: 10px;
   height: 51px;
@@ -21,9 +26,11 @@ export const ButtonAdd = styled(Button)`
   background: #38c6da;
   border: transparent;
 `;
+
 export const ButtonEdit = styled(Button)`
   height: 37px;
   width: 83px;
+  margin-right: 5px;
   color: #ffffff;
   background-color: #6ad36e;
   font-size: 17px;
@@ -33,6 +40,7 @@ export const ButtonEdit = styled(Button)`
 export const ButtonDelete = styled(Button)`
   height: 37px;
   width: 83px;
+  margin-left: 5px;
   color: #ffffff;
   background-color: #fb5867;
   font-size: 17px;
@@ -49,6 +57,14 @@ export const Articles = styled.div`
     padding-top: 10px;
     font-size: 20px;
   }
+`;
+
+export const NameTruncate = styled.span`
+  display: inline-block;
+  width: 350px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const TableArticles = styled(Table)`

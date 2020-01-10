@@ -1,4 +1,5 @@
 import firebaseApp from '../Api/Configfirebase';
+import * as firebase from 'firebase';
 
 export function checkLogin(user) {
   firebaseApp
@@ -20,4 +21,12 @@ export function checkLogin(user) {
     });
 }
 
-export function checkStatusLogin() {}
+export function loadData() {
+  return firebase
+    .database()
+    .ref('Articles')
+    .once('value')
+    .then(function(dataSnapshot) {
+      return dataSnapshot.val();
+    });
+}

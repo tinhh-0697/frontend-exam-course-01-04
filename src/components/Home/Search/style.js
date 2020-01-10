@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Button } from 'reactstrap';
 
 export const TopControl = styled.div`
   display: flex;
@@ -59,4 +60,61 @@ export const FormTop = styled.form`
       color: #b5b5b5;
     }
   }
+`;
+
+export const Profile = styled.div`
+  display: none;
+  padding: 50px 20px 20px 20px;
+  position: absolute;
+  right: 5px;
+  border-radius: 10px;
+  background: #f5f6fe;
+  text-align: center;
+  width: 200px;
+  box-shadow: 3px 3px 5px 1px #666;
+
+  .role-title {
+    margin-bottom: 10px;
+    padding: 10px;
+    color: #f9be58;
+    font-size: 15px;
+    border-bottom: 2px solid #959595;
+  }
+
+  img {
+    width: 80px;
+    position: absolute;
+    top: -15px;
+    right: 29%;
+  }
+`;
+
+export const SetingTop = styled.div`
+  position: relative;
+
+  &:hover {
+    ${Profile} {
+      display: block;
+    }
+  }
+`;
+
+export const LogoutButton = styled(Button)`
+  margin: 10px;
+  height: 37px;
+  width: 83px;
+  color: #ffffff;
+  background-color: #6ad36e;
+  font-size: 17px;
+  border: transparent;
+`;
+
+export const SettingButton = styled(Button)`
+  margin: 10px;
+  height: 37px;
+  width: 83px;
+  color: #ffffff;
+  background-color: #fb5867;
+  font-size: 17px;
+  border: transparent;
 `;

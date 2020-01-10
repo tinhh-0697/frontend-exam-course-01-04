@@ -1,45 +1,24 @@
 import React from 'react';
 import IconSearch from './img/IconSearch1.png';
+import ImgProfile from './img/profileimg.jpg';
 import { CustomInput } from 'reactstrap';
 import { connect } from 'react-redux';
 import { SwitchSetThyme } from '../../../Store/SetThyme/action';
 import { LogoutFirebase } from '../../../Store/Login/action';
-import { TopMain, TopControl, FormTop } from './style';
+import {
+  TopMain,
+  TopControl,
+  FormTop,
+  SetingTop,
+  Profile,
+  LogoutButton,
+  SettingButton
+} from './style';
 
 const Search = props => {
   const Logout = () => {
-    // firebaseApp
-    //   .auth()
-    //   .signOut()
-    //   .then(() => {
-    //     localStorage.removeItem('user');
-    //     console.log('loguted');
-    //   })
-    //   .catch(error => {
-    //     console.log('errologout');
-    //   });
     props.Logout();
   };
-
-  // const po = () => {
-  //   firebaseApp.auth().onAuthStateChanged(function(user) {
-  //     if (user) {
-  //       console.log(user);
-  //     } else {
-  //       console.log('no');
-  //     }
-  //   });
-  // firebaseApp
-  //   .auth()
-  //   .createUserWithEmailAndPassword('tran.quan.lam1@gmail.com', '123456')
-  //   .then(function(result) {
-  //     return result.user.updateProfile({
-  //       displayName: 'tranquanlam'
-  //     });
-  //   })
-  //   .catch(function(error) {
-  //     console.log(error);
-  //   });
 
   const actionThyme = () => {
     props.SetThyme();
@@ -60,7 +39,16 @@ const Search = props => {
           onChange={actionThyme}
         />
         <p>Kudo Tran</p>
-        <i className="fa fa-cog" onClick={Logout}></i>
+        <SetingTop>
+          <i className="fa fa-cog"></i>
+          <Profile>
+            <img className="rounded-circle " src={ImgProfile}></img>
+            <p>--Hello--</p>
+            <p className="role-title">ADMIN</p>
+            <LogoutButton onClick={Logout}>Logout</LogoutButton>
+            <SettingButton>Setting</SettingButton>
+          </Profile>
+        </SetingTop>
       </TopControl>
     </TopMain>
   );
