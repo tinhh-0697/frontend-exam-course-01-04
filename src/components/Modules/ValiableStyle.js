@@ -1,4 +1,5 @@
 export const thyme_light = {
+  sun: 'true',
   background_search: '#fafbfc',
   background_main: '#eceef0',
   background_table_1: '#ffffff',
@@ -9,6 +10,7 @@ export const thyme_light = {
 };
 
 export const thyme_dark = {
+  moon: 'true',
   background_search: '#232528',
   background_main: '#1f2124',
   background_table_1: '#222427',

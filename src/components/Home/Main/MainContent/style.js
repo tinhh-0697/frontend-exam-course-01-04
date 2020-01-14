@@ -1,8 +1,11 @@
 import styled from 'styled-components';
+import * as Color from '../../../Modules/Color';
 import { Table, Button } from 'reactstrap';
 
 export const ContentTable = styled.div`
   padding: 30px;
+  z-index: 10;
+  position: relative;
 `;
 
 export const ArticlesTop = styled.div`
@@ -23,7 +26,7 @@ export const ButtonAdd = styled(Button)`
   margin-bottom: 10px;
   height: 51px;
   width: 157px;
-  background: #38c6da;
+  background: ${Color.turquoise};
   border: transparent;
 `;
 
@@ -31,20 +34,14 @@ export const ButtonEdit = styled(Button)`
   height: 37px;
   width: 83px;
   margin-right: 5px;
-  color: #ffffff;
-  background-color: #6ad36e;
+  color: ${Color.white};
+  background: ${Color.green};
   font-size: 17px;
   border: transparent;
 `;
 
-export const ButtonDelete = styled(Button)`
-  height: 37px;
-  width: 83px;
-  margin-left: 5px;
-  color: #ffffff;
-  background-color: #fb5867;
-  font-size: 17px;
-  border: transparent;
+export const ButtonDelete = styled(ButtonEdit)`
+  background: ${Color.red};
 `;
 
 export const Articles = styled.div`
@@ -61,7 +58,7 @@ export const Articles = styled.div`
 
 export const NameTruncate = styled.span`
   display: inline-block;
-  width: 350px;
+  width: 550px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -77,7 +74,8 @@ export const TableArticles = styled(Table)`
   }
 
   tr {
-    .check-status {
+    .check-status,
+    .btn-td {
       text-align: center;
     }
   }
@@ -97,17 +95,19 @@ export const TableArticles = styled(Table)`
   }
 
   .name-td {
-    width: calc(100% * 0.26);
-    color: #a0a0a0;
+    width: calc(100% * 0.4);
+    color: ${Color.gray};
     padding-right: 100px;
   }
 
   .id-td {
-    width: calc(100% * 0.04);
+    width: calc(100% * 0.01);
+    color: ${Color.gray};
   }
 
   .check-status {
-    width: calc(100% * 0.3);
+    padding: 32px 10px 25px 10px;
+    width: calc(100% * 0.1);
     color: ${props => props.theme.text_color_2};
   }
 
@@ -117,7 +117,11 @@ export const TableArticles = styled(Table)`
   }
 
   .btn-td {
-    display: flex;
-    justify-content: space-between;
+    padding: 32px 70px 25px 25px;
   }
+`;
+
+export const CheckStatus = styled.i`
+  color: ${props =>
+    props.status === 'true' ? Color.turquoise_01 : Color.gray_010};
 `;

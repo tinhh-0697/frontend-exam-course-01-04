@@ -30,3 +30,55 @@ export function loadData() {
       return dataSnapshot.val();
     });
 }
+
+export function addDataAPI(object) {
+  var newPostKey = firebase
+    .database()
+    .ref()
+    .child('Articles')
+    .push().key;
+
+  const article = {
+    ...object,
+    id: newPostKey
+  };
+
+  var updates = {};
+  updates['/Articles/' + newPostKey] = article;
+  firebase
+    .database()
+    .ref()
+    .update(updates);
+}
+
+export function editDataAPI(object) {
+  var updates = {};
+  updates['/Articles/' + object.id] = object;
+  firebase
+    .database()
+    .ref()
+    .update(updates);
+}
+
+export function deleteDataAPI(id) {
+  firebase
+    .database()
+    .ref()
+    .child('/Articles/' + id)
+    .remove();
+}
+
+export function editCheckDataAPI(object) {
+  var article = {
+    id: object.id,
+    name: object.name,
+    views: object.views,
+    status: !object.status
+  };
+  var updates = {};
+  updates['/Articles/' + object.id] = article;
+  firebase
+    .database()
+    .ref()
+    .update(updates);
+}

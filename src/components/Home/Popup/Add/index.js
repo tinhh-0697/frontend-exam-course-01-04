@@ -1,10 +1,9 @@
 import React from 'react';
 import { withFormik } from 'formik';
-import * as firebase from 'firebase';
 import { connect } from 'react-redux';
 import { PopupAdd, IconText } from './style';
 import { ErrorValidate } from '../../../Login/style';
-import { loadDataAPI } from '../../../../Store/Articles/action';
+import { addData } from '../../../../Store/Articles/action';
 import {
   Button,
   InputGroup,
@@ -139,28 +138,15 @@ const PopupAddArticles = withFormik({
   },
 
   handleSubmit: (values, { props, resetForm }) => {
-    var newPostKey = firebase
-      .database()
-      .ref()
-      .child('Articles')
-      .push().key;
-
     const article = {
-      id: newPostKey,
       name: values.name,
       views: values.views,
       status: values.status
     };
 
-    var updates = {};
-    updates['/Articles/' + newPostKey] = article;
-    resetForm();
-    firebase
-      .database()
-      .ref()
-      .update(updates);
+    props.addArticles(article);
     props.onClickPopupAdd();
-    props.loadData();
+    resetForm();
   }
 })(Add);
 
@@ -168,8 +154,8 @@ const mapStateToProps = state => ({});
 
 const mapDispatchToProps = dispatch => {
   return {
-    loadData: () => {
-      dispatch(loadDataAPI());
+    addArticles: object => {
+      dispatch(addData(object));
     }
   };
 };

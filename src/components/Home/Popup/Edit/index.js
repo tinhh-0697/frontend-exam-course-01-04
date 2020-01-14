@@ -1,10 +1,9 @@
 import React from 'react';
-import * as firebase from 'firebase';
 import { withFormik } from 'formik';
 import { connect } from 'react-redux';
 import { PopupEdit, IconText } from './style';
 import { ErrorValidate } from '../../../Login/style';
-import { loadDataAPI } from '../../../../Store/Articles/action';
+import { editData } from '../../../../Store/Articles/action';
 import {
   Button,
   InputGroup,
@@ -33,7 +32,7 @@ const Edit = props => {
   return (
     <PopupEdit isOpen={modal} toggle={onClickPopupEdit} className="modal-lg">
       <form onSubmit={handleSubmit}>
-        <ModalHeader toggle={props.onClickPopupEdit}>Edit articles</ModalHeader>
+        <ModalHeader toggle={onClickPopupEdit}>Edit articles</ModalHeader>
         <ModalBody>
           <FormGroup row>
             <Label for="nameUpdate" sm={2}>
@@ -101,7 +100,7 @@ const Edit = props => {
           <Button type="submit" color="success">
             Update
           </Button>{' '}
-          <Button color="danger" onClick={props.onClickPopupEdit}>
+          <Button color="danger" onClick={onClickPopupEdit}>
             Cancel
           </Button>
         </ModalFooter>
@@ -138,21 +137,14 @@ const PopupEditArticles = withFormik({
     return errors;
   },
 
-  handleSubmit: (values, { props, resetForm }) => {
+  handleSubmit: (values, { props }) => {
     const article = {
       id: values.id,
       name: values.nameUpdate,
       views: values.viewsUpdate,
       status: values.statusUpdate
     };
-    var updates = {};
-    updates['/Articles/' + values.id] = article;
-    resetForm();
-    firebase
-      .database()
-      .ref()
-      .update(updates);
-    props.loadData();
+    props.editArticles(article);
     props.onClickPopupEdit();
   }
 })(Edit);
@@ -161,8 +153,8 @@ const mapStateToProps = state => ({});
 
 const mapDispatchToProps = dispatch => {
   return {
-    loadData: () => {
-      dispatch(loadDataAPI());
+    editArticles: article => {
+      dispatch(editData(article));
     }
   };
 };

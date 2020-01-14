@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import LogoImg from './img/logo.png';
 import Notification from '../../Modules/Notification';
+import IconSearch from '../Search/img/IconSearch1.png';
 
 import {
   Logo,
@@ -8,11 +9,14 @@ import {
   Category,
   ListItem,
   ListMenu,
-  ButtonToggle
+  ButtonToggle,
+  ToggleSearch,
+  InputSearch
 } from './style';
 
-const Sidebars = props => {
+const Sidebars = () => {
   const [toggle, setToggle] = useState(true);
+  const [toggleSearch, setToggleSearch] = useState(false);
 
   const toggleSidebar = () => {
     setToggle(!toggle);
@@ -21,11 +25,19 @@ const Sidebars = props => {
   const closeSidebar = () => {
     setToggle(!toggle);
   };
+
+  const toggleInputSearch = () => {
+    setToggleSearch(!toggleSearch);
+  };
   return (
     <>
       <ButtonToggle onClick={() => toggleSidebar()}>
         <i className="fa fa-bars" aria-hidden="true"></i>
       </ButtonToggle>
+      <ToggleSearch onClick={() => toggleInputSearch()}>
+        <img src={IconSearch} alt="img" />
+      </ToggleSearch>
+      <InputSearch togglesearch={toggleSearch.toString()}></InputSearch>
       <Sidebar toggle={toggle}>
         <Logo>
           <div>

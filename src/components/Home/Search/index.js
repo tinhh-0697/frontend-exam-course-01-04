@@ -1,10 +1,11 @@
 import React from 'react';
 import IconSearch from './img/IconSearch1.png';
 import ImgProfile from './img/profileimg.jpg';
-import { CustomInput } from 'reactstrap';
 import { connect } from 'react-redux';
 import { SwitchSetThyme } from '../../../Store/SetThyme/action';
 import { LogoutFirebase } from '../../../Store/Login/action';
+import SunImg from './img/sun.png';
+import MoonImg from './img/moon.png';
 import {
   TopMain,
   TopControl,
@@ -12,7 +13,14 @@ import {
   SetingTop,
   Profile,
   LogoutButton,
-  SettingButton
+  SettingButton,
+  IconSun,
+  IconMoon,
+  UserNameText,
+  TopControlRight,
+  TopControlLeft,
+  AnimationIcon,
+  ThymeSwitch
 } from './style';
 
 const Search = props => {
@@ -32,23 +40,35 @@ const Search = props => {
         <input type="text" placeholder="Search now..." />
       </FormTop>
       <TopControl>
-        <CustomInput
-          type="switch"
-          id="exampleCustomSwitch"
-          name="customSwitch"
-          onChange={actionThyme}
-        />
-        <p>Kudo Tran</p>
-        <SetingTop>
-          <i className="fa fa-cog"></i>
-          <Profile>
-            <img className="rounded-circle " src={ImgProfile}></img>
-            <p>--Hello--</p>
-            <p className="role-title">ADMIN</p>
-            <LogoutButton onClick={Logout}>Logout</LogoutButton>
-            <SettingButton>Setting</SettingButton>
-          </Profile>
-        </SetingTop>
+        <TopControlLeft>
+          <AnimationIcon>
+            <IconSun src={SunImg}></IconSun>
+            <IconMoon src={MoonImg}></IconMoon>
+          </AnimationIcon>
+          <ThymeSwitch
+            type="switch"
+            id="exampleCustomSwitch"
+            name="customSwitch"
+            onChange={actionThyme}
+          ></ThymeSwitch>
+        </TopControlLeft>
+        <TopControlRight>
+          <UserNameText>Kudo Tran</UserNameText>
+          <SetingTop>
+            <i className="fa fa-cog"></i>
+            <Profile>
+              <img
+                alt="null"
+                className="rounded-circle "
+                src={ImgProfile}
+              ></img>
+              <p>--Hello--</p>
+              <p className="role-title">ADMIN</p>
+              <LogoutButton onClick={Logout}>Logout</LogoutButton>
+              <SettingButton>Setting</SettingButton>
+            </Profile>
+          </SetingTop>
+        </TopControlRight>
       </TopControl>
     </TopMain>
   );

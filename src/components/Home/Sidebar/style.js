@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import { Button } from 'reactstrap';
+import { Button, Input } from 'reactstrap';
+import * as Color from '../../Modules/Color';
 
 export const Sidebar = styled.div`
   width: calc((100% * 9) / 50);
   background: ${props => props.theme.background_search};
-  transition: all 0.4s;
 
   @media only screen and (max-width: 1380px) {
     width: 25%;
@@ -22,13 +22,14 @@ export const Sidebar = styled.div`
     top: 0px;
     bottom: 0px;
     width: 343px;
-    box-shadow: 0 0 5px #383232;
+    box-shadow: 0 0 5px ${Color.gray_01};
   }
 `;
 
 export const ButtonToggle = styled(Button)`
   display: none;
   position: fixed;
+  z-index: 11;
   top: 82px;
   width: 50px;
   height: 50px;
@@ -37,11 +38,31 @@ export const ButtonToggle = styled(Button)`
   }
 `;
 
+export const ToggleSearch = styled(ButtonToggle)`
+  top: 133px;
+  @media only screen and (max-width: 850px) {
+    display: block;
+  }
+`;
+export const InputSearch = styled(Input)`
+  padding: ${props => (props.togglesearch === 'true' ? '5px' : '0px')};
+  position: fixed;
+  z-index: 11;
+  top: 133px;
+  left: 50px;
+  width: ${props => (props.togglesearch === 'true' ? '200px' : '0px')};
+  height: 50px;
+  transition: all 0.6s;
+  @media only screen and (min-width: 850px) {
+    display: none;
+  }
+`;
+
 export const Logo = styled.div`
   display: flex;
   padding: 10px 34px;
   height: 82px;
-  background: #38c6da;
+  background: ${Color.turquoise};
 
   p {
     text-align: center;
@@ -49,14 +70,14 @@ export const Logo = styled.div`
     padding: 16px 16px;
     font-size: 18px;
     font-weight: bold;
-    color: white;
+    color: ${Color.white};
   }
 
   i {
     display: none;
     padding: 12px 0px 10px 50px;
     font-size: 25px;
-    color: #ffffff;
+    color: ${Color.white};
 
     @media only screen and (max-width: 850px) {
       display: block;
@@ -85,38 +106,19 @@ export const ListItem = styled(NavLink)`
   justify-content: space-between;
   position: relative;
   padding: 21px 34px;
-  color: #757d89;
-  transition: all 0.6;
+  color: ${Color.gray_02};
+  transition: all 0.6s;
 
   :hover {
     text-decoration: none;
-    color: #38c6da;
-    ::before {
-      content: '';
-      position: absolute;
-      top: 13px;
-      left: 0;
-      bottom: 5px;
-      height: 44px;
-      width: 5px;
-      background: #38c6da;
-    }
+    color: ${Color.turquoise};
+    border-left: 5px solid ${Color.turquoise};
   }
 
   &.active {
     text-decoration: none;
-    color: #38c6da;
-
-    ::before {
-      content: '';
-      position: absolute;
-      top: 13px;
-      left: 0;
-      bottom: 5px;
-      height: 44px;
-      width: 5px;
-      background: #38c6da;
-    }
+    color: ${Color.turquoise};
+    border-left: 5px solid ${Color.turquoise};
   }
 `;
 
@@ -128,7 +130,7 @@ export const NameProject = styled.p`
   padding: 12px 16px;
   font-size: 18px;
   font-weight: bold;
-  color: white;
+  color: ${Color.white};
 `;
 
 export const ListMenu = styled.ul`
