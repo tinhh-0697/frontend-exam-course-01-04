@@ -117,6 +117,8 @@ const PopupEditArticles = withFormik({
     statusUpdate: article.status
   }),
 
+  enableReinitialize: true,
+
   validate: values => {
     const errors = {};
 
@@ -137,13 +139,14 @@ const PopupEditArticles = withFormik({
     return errors;
   },
 
-  handleSubmit: (values, { props }) => {
+  handleSubmit: (values, { props, resetForm }) => {
     const article = {
       id: values.id,
       name: values.nameUpdate,
       views: values.viewsUpdate,
       status: values.statusUpdate
     };
+
     props.editArticles(article);
     props.onClickPopupEdit();
   }

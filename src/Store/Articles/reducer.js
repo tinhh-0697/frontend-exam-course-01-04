@@ -1,6 +1,7 @@
 import * as types from './type';
 
 const initialState = {
+  flag: false,
   articles: []
 };
 
@@ -10,6 +11,7 @@ export const Articles = (state = initialState, action) => {
       var list = Object.values(action.list);
       return {
         ...state,
+        flag: true,
         articles: list
       };
     default:

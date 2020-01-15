@@ -4,11 +4,22 @@ const initialState = {};
 
 export const LoginReducer = (state = initialState, action) => {
   switch (action.type) {
+    case types.CREATE_USER:
+      firebaseApp
+        .auth()
+        .createUserWithEmailAndPassword('quanlamtran@gmail.com', '2241998')
+        .then(function(result) {
+          result.user.updateProfile({
+            displayName: 'Tran Quan Lam'
+          });
+        });
+      return { ...state };
     case types.LOGIN_FIREBASE:
       firebaseApp
         .auth()
         .signInWithEmailAndPassword(action.user.email, action.user.password)
         .then(function(resust) {
+          console.log(resust);
           const user = {
             UserName: resust.user.displayName,
             idToken: resust.user.refreshToken,

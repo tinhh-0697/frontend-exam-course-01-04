@@ -12,6 +12,7 @@ const StyleWidth = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
   display: flex;
   position: relative;
+  height: 100%;
   font-family: 'Rubik', sans-serif;
 `;
 

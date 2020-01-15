@@ -1,18 +1,19 @@
 import styled from 'styled-components';
+import { device } from '../../Modules/Responsive';
 
 export const Main = styled.div`
   width: calc((100% * 41) / 50);
   background: ${props => props.theme.background_main};
 
-  @media only screen and (max-width: 1380px) {
+  @media ${device.laptopL} {
     width: 75%;
   }
 
-  @media only screen and (max-width: 1000px) {
+  @media ${device.laptop} {
     width: 70%;
   }
 
-  @media only screen and (max-width: 850px) {
+  @media ${device.tablet} {
     width: 100%;
   }
 `;

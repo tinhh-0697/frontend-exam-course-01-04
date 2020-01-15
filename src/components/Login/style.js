@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const LoginPage = styled.div`
   width: 100%;
-  height: 100%;
+  height: 1000px;
   position: relative;
   font-family: 'Rubik', sans-serif;
   background: #38c6da;

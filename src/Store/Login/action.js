@@ -11,3 +11,7 @@ export function checkStatusLogin() {
 export function LogoutFirebase() {
   return { type: types.LOGOUT_FIREBASE };
 }
+
+export function SignupFirebase() {
+  return { type: types.CREATE_USER };
+}

@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import * as Color from '../../../Modules/Color';
+import * as Font from '../../../Modules/Font';
+import { device } from '../../../Modules/Responsive';
 import { Table, Button } from 'reactstrap';
 
 export const ContentTable = styled.div`
@@ -15,11 +17,6 @@ export const ArticlesTop = styled.div`
   border-radius: 10px;
   color: ${props => props.theme.color_title_articles};
   background: ${props => props.theme.background_table};
-`;
-
-export const GroupButton = styled.div`
-  display: flex;
-  justify-content: space-between;
 `;
 
 export const ButtonAdd = styled(Button)`
@@ -62,15 +59,55 @@ export const NameTruncate = styled.span`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  @media ${device.laptopL} {
+    width: 400px;
+  }
+
+  @media ${device.laptop} {
+    width: 300px;
+  }
+`;
+
+export const GroupButton = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 
 export const TableArticles = styled(Table)`
   background: ${props => props.theme.background_table_1};
 
   thead th {
-    padding-top: 15px;
+    padding: 2px 5px 20px 5px;
     border-bottom: 1px solid ${props => props.theme.border_table};
+    text-align: center;
     color: ${props => props.theme.text_color_1};
+
+    :nth-child(2) {
+      text-align: left;
+    }
+  }
+
+  th {
+    border-top: none;
+    font-size: ${Font.font_size};
+  }
+
+  tbody tr:nth-of-type(odd) {
+    background: ${props => props.theme.background_table_1};
+    transition: all 0.4s;
+
+    :hover {
+      background: ${Color.gray_04};
+    }
+  }
+
+  tbody tr:nth-of-type(even) {
+    background: ${props => props.theme.background_table_2};
+    transition: all 0.4s;
+    :hover {
+      background: ${Color.gray_04};
+    }
   }
 
   tr {
@@ -80,33 +117,38 @@ export const TableArticles = styled(Table)`
     }
   }
 
-  td,
-  th {
-    padding: 32px 45px 25px 45px;
+  td {
     border-top: none;
-  }
+    font-size: ${Font.font_size};
+    padding: ${Font.padding_02};
+    text-align: center;
 
-  tbody tr:nth-of-type(odd) {
-    background: ${props => props.theme.background_table_1};
-  }
+    @media ${device.laptop} {
+      font-size: ${Font.font_size_laptop};
+    }
 
-  tbody tr:nth-of-type(even) {
-    background: ${props => props.theme.background_table_2};
+    @media ${device.tablet} {
+      font-size: ${Font.font_size_tablet};
+    }
   }
 
   .name-td {
+    text-align: left;
     width: calc(100% * 0.4);
     color: ${Color.gray};
-    padding-right: 100px;
   }
 
   .id-td {
-    width: calc(100% * 0.01);
+    text-align: center;
+    width: calc(100% * 0.05);
     color: ${Color.gray};
+
+    @media ${device.laptopL} {
+      width: calc(100% * 0.1);
+    }
   }
 
   .check-status {
-    padding: 32px 10px 25px 10px;
     width: calc(100% * 0.1);
     color: ${props => props.theme.text_color_2};
   }
@@ -117,11 +159,16 @@ export const TableArticles = styled(Table)`
   }
 
   .btn-td {
-    padding: 32px 70px 25px 25px;
+    padding-left: 50px;
+    padding-right: 50px;
+
+    @media ${device.tablet} {
+      font-size: ${Font.padding_02};
+    }
   }
 `;
 
 export const CheckStatus = styled.i`
   color: ${props =>
-    props.status === 'true' ? Color.turquoise_01 : Color.gray_010};
+    props.status === 'true' ? Color.turquoise_01 : Color.gray_09};
 `;

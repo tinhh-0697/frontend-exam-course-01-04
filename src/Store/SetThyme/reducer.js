@@ -4,8 +4,23 @@ import {
   thyme_dark
 } from '../../components/Modules/ValiableStyle';
 const initialState = {
-  bool_background: true,
-  thymes: thyme_light
+  bool_background: JSON.parse(localStorage.getItem('thyme')),
+  // bool_background: function() {
+  //   if (localStorage.getItem('thyme')) {
+  //     if (localStorage.getItem('thyme') === 'false') {
+  //       return false;
+  //     }
+  //   }
+  //   return true;
+  // },
+  thymes: function() {
+    if (localStorage.getItem('thyme')) {
+      if (localStorage.getItem('thyme') === 'false') {
+        return thyme_dark;
+      }
+    }
+    return thyme_light;
+  }
 };
 
 export const SetThyme = (state = initialState, action) => {
@@ -20,11 +35,13 @@ export const SetThyme = (state = initialState, action) => {
           ...state,
           thymes: thyme_light
         };
+        localStorage.setItem('thyme', state.bool_background);
       } else {
         state = {
           ...state,
           thymes: thyme_dark
         };
+        localStorage.setItem('thyme', state.bool_background);
       }
       return { ...state };
     default:

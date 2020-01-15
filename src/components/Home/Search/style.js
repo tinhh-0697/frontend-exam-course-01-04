@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 import { Button, CustomInput } from 'reactstrap';
 import * as Color from '../../Modules/Color';
+import { device } from '../../Modules/Responsive';
 
 export const TopControl = styled.div`
   display: flex;
   align-items: center;
   padding: 10px;
 
-  @media only screen and (max-width: 850px) {
+  @media ${device.tablet} {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -29,7 +30,7 @@ export const UserNameText = styled.p`
   margin-bottom: 0px;
   color: ${Color.gray_03};
   font-size: 21px;
-  @media only screen and (max-width: 850px) {
+  @media ${device.tablet} {
     display: none;
   }
 `;
@@ -78,9 +79,9 @@ export const IconMoon = styled.img`
   position: absolute;
   width: 50px;
   right: 100px;
-  top: -50px;
+  top: -150px;
   transform: ${props =>
-    props.theme.moon ? 'translate(-63px,-146px)' : 'translate(63px, 167px)'};
+    props.theme.moon ? 'translate(-63px,-48px)' : 'translate(0px, 28px)'};
 `;
 
 export const TopMain = styled.div`
@@ -94,7 +95,7 @@ export const TopMain = styled.div`
 export const FormTop = styled.form`
   padding: 17px 20px 16px 27px;
 
-  @media only screen and (max-width: 850px) {
+  @media ${device.tablet} {
     display: none;
   }
 
@@ -130,13 +131,14 @@ export const FormTop = styled.form`
 
 export const Profile = styled.div`
   display: none;
+  width: 200px;
   padding: 50px 20px 20px 20px;
   position: absolute;
+  z-index: 13;
   right: 5px;
   border-radius: 10px;
   background: #f5f6fe;
   text-align: center;
-  width: 200px;
   box-shadow: 3px 3px 5px 1px
     ${props => (props.theme.sun ? Color.gray_06 : Color.black)};
 

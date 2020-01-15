@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import IconSearch from './img/IconSearch1.png';
 import ImgProfile from './img/profileimg.jpg';
 import { connect } from 'react-redux';
 import { SwitchSetThyme } from '../../../Store/SetThyme/action';
-import { LogoutFirebase } from '../../../Store/Login/action';
+import { LogoutFirebase, SignupFirebase } from '../../../Store/Login/action';
 import SunImg from './img/sun.png';
 import MoonImg from './img/moon.png';
 import {
@@ -24,8 +24,18 @@ import {
 } from './style';
 
 const Search = props => {
-  const Logout = () => {
+  const [username, SetUserName] = useState();
+  const { Logout } = props;
+  useEffect(() => {
+    const object = JSON.parse(localStorage.getItem('user'));
+    SetUserName(object.UserName);
+  }, [Logout]);
+
+  const LogoutClick = () => {
     props.Logout();
+  };
+  const Signup = () => {
+    props.Signup();
   };
 
   const actionThyme = () => {
@@ -39,6 +49,7 @@ const Search = props => {
         </button>
         <input type="text" placeholder="Search now..." />
       </FormTop>
+      {console.log(JSON.parse(localStorage.getItem('user')))}
       <TopControl>
         <TopControlLeft>
           <AnimationIcon>
@@ -53,7 +64,7 @@ const Search = props => {
           ></ThymeSwitch>
         </TopControlLeft>
         <TopControlRight>
-          <UserNameText>Kudo Tran</UserNameText>
+          <UserNameText>{username}</UserNameText>
           <SetingTop>
             <i className="fa fa-cog"></i>
             <Profile>
@@ -62,10 +73,10 @@ const Search = props => {
                 className="rounded-circle "
                 src={ImgProfile}
               ></img>
-              <p>--Hello--</p>
+              <p>{username}</p>
               <p className="role-title">ADMIN</p>
-              <LogoutButton onClick={Logout}>Logout</LogoutButton>
-              <SettingButton>Setting</SettingButton>
+              <LogoutButton onClick={LogoutClick}>Logout</LogoutButton>
+              <SettingButton onClick={Signup}>Setting</SettingButton>
             </Profile>
           </SetingTop>
         </TopControlRight>
@@ -83,6 +94,9 @@ const mapDispatchToProps = dispatch => {
     },
     Logout: () => {
       dispatch(LogoutFirebase());
+    },
+    Signup: () => {
+      dispatch(SignupFirebase());
     }
   };
 };
