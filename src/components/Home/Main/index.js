@@ -13,6 +13,7 @@ const index = () => {
       <Search></Search>
       <Switch>
         <Suspense fallback={<Spinner type="grow" />}>
+          <Route exact path="/" component={MainContent}></Route>
           <Route path="/table" component={MainContent}></Route>
           <Route path="/chart" component={Chart}></Route>
         </Suspense>

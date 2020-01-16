@@ -98,7 +98,10 @@ export const TableArticles = styled(Table)`
     transition: all 0.4s;
 
     :hover {
-      background: ${Color.gray_04};
+      background: ${props =>
+        props.theme.background_table_1 === Color.white
+          ? Color.gray_04
+          : Color.black_01};
     }
   }
 
@@ -106,7 +109,10 @@ export const TableArticles = styled(Table)`
     background: ${props => props.theme.background_table_2};
     transition: all 0.4s;
     :hover {
-      background: ${Color.gray_04};
+      background: ${props =>
+        props.theme.background_table_2 === Color.black_03
+          ? Color.black_01
+          : Color.gray_04};
     }
   }
 

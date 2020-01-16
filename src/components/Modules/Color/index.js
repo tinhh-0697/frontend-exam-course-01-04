@@ -16,6 +16,9 @@ export const turquoise_01 = '#41c9dc';
 export const white = '#ffffff';
 
 export const black = '#111a22';
+export const black_01 = '#262833';
+export const black_02 = '#222427';
+export const black_03 = '#242629';
 
 export const red = '#fb5867';
 
